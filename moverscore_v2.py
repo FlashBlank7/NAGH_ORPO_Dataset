@@ -159,8 +159,8 @@ def word_mover_score(refs, hyps, idf_dict_ref, idf_dict_hyp, stop_words=[], n_gr
         distance_matrix = batched_cdist_l2(raw, raw).double().cpu().numpy()
                 
         for i in range(batch_size):  
-            c1 = np.zeros(raw.shape[1], dtype=np.float)
-            c2 = np.zeros(raw.shape[1], dtype=np.float)
+            c1 = np.zeros(raw.shape[1], dtype=float)
+            c2 = np.zeros(raw.shape[1], dtype=float)
             c1[:len(ref_idf[i])] = ref_idf[i]
             c2[len(ref_idf[i]):] = hyp_idf[i]
             
